@@ -8,29 +8,21 @@
     <link rel="stylesheet" href="~/MVCFRIB.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header style="background-color=#18453b">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Code Test</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="messages" asp-action="send">Send a Message</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="messages" asp-action="list">Message List</a>
-                        </li>
-                    </ul>
+    <header class="background-state">
+        <div>
+            <h1 class="header-text">Code Test</h1>
+            <div class="header-container">
+                <div class="nav-item">
+                    <a class="header-text" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a class="header-text" asp-area="" asp-controller="Messages" asp-action="Send">Send a Message</a>
+                </div>
+                <div class="nav-item">
+                    <a class="header-text" asp-area="" asp-controller="Messages" asp-action="List">Message List</a>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
