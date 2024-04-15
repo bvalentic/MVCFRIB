@@ -3,7 +3,6 @@ bin/
 obj/
 .vs/
 packages/
-Migrations/
 
 *.user
 *.suo

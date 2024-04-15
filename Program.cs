@@ -34,6 +34,12 @@ namespace MVCFRIB
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapControllerRoute(
+                name: "ListMessage",
+                pattern: "{controller=ListMessage}/{action=ListMessage}/{id?}");
+            app.MapControllerRoute(
+                name: "SendMessage",
+                pattern: "{controller=SendMessage}/{action=SendMessage}/{id?}");
 
             app.Run();
         }

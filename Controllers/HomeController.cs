@@ -7,16 +7,12 @@ namespace MVCFRIB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly MessageContext _context;
-
-        public HomeController(MessageContext context)
+        public HomeController()
         {
-            _context = context;
         }
 
         public IActionResult Index()
         {
-            //return View(_context.Messages.ToList());
             return View();
         }
 
