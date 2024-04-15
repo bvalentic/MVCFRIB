@@ -2,27 +2,15 @@
 bin/
 obj/
 .vs/
-
-# Ignore NuGet packages
 packages/
+Migrations/
 
-# Ignore user-specific files
 *.user
 *.suo
 *.csproj.user
-
-# Ignore compiled DLLs and executables
 *.dll
 *.exe
-
-# Ignore symbol files
 *.pdb
-
-# Ignore cache files
 *.cache
-
-# Ignore log files
 *.log
-
-# Ignore temporary files
 *.tmp

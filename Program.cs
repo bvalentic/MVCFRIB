@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MVCFRIB.Data;
+
 namespace MVCFRIB
 {
     public class Program
@@ -8,6 +11,8 @@ namespace MVCFRIB
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<MessageContext>(options =>
+                options.UseSqlite($"Data Source=./Messages.db"));
 
             var app = builder.Build();
 

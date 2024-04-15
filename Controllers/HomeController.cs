@@ -1,20 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using MVCFRIB.Models;
+using MVCFRIB.Data;
 using System.Diagnostics;
 
 namespace MVCFRIB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly MessageContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(MessageContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            //return View(_context.Messages.ToList());
             return View();
         }
 
