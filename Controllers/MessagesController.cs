@@ -20,17 +20,21 @@ namespace MVCFRIB.Controllers
         }
 
         // GET: Messages
-        public async Task<IActionResult> Index()
+        [HttpGet]
+        public IActionResult Index()
         {
-            return View(await _context.Messages.ToListAsync());
+            return View();
         }
-        public async Task<IActionResult> ListMessage()
+        // GET: [Messages]
+        [HttpGet]
+        public async Task<IActionResult> List()
         {
             return View(await _context.Messages.ToListAsync());
         }
 
         // GET: Messages/Details/5
-        public async Task<IActionResult> GetMessage(int? id)
+        [HttpGet]
+        public async Task<IActionResult> Get(int? id)
         {
             if (id == null)
             {
@@ -47,11 +51,8 @@ namespace MVCFRIB.Controllers
             return View(message);
         }
 
-        // POST: Messages/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Messages/Send
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Send([Bind("id,messageContent,Sent")] Message message)
         {
             if (ModelState.IsValid)

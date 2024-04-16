@@ -1,15 +1,9 @@
 ﻿namespace MVCFRIB.Models
 {
-    public class Message
+    public class Message(string messageContent)
     {
-        public Message()
-        {
-            this.id = 1;
-            this.messageContent = "";
-            this.Sent = DateTime.Now;
-        }
         public int id {  get; set; }
-        public string messageContent { get; set; }
-        public DateTime Sent {  get; set; }
+        public string messageContent { get; set; } = messageContent;
+        public DateTime Sent { get; set; } = DateTime.Now;
     }
 }
