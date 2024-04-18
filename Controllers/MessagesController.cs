@@ -42,7 +42,7 @@ namespace MVCFRIB.Controllers
             }
 
             var message = await _context.Messages
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (message == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace MVCFRIB.Controllers
 
         // POST: Messages/Send
         [HttpPost]
-        public async Task<IActionResult> Send([Bind("id,messageContent,Sent")] Message message)
+        public async Task<IActionResult> Send([Bind("Id,MessageContent,Sent")] Message message)
         {
             if (ModelState.IsValid)
             {

@@ -1,4 +1,5 @@
 ﻿@model List<MVCFRIB.Models.Message>
+@* @model IEnumerable<MVCFRIB.Models.Message> *@
 
 @{
     ViewData["Title"] = "Message List";
@@ -13,16 +14,16 @@
     {
         <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(list => list[i].id)
+                @Html.DisplayNameFor(list => list[i].Id)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(list => list[i].id)
+                @Html.DisplayFor(list => list[i].Id)
             </dd>
             <dt class = "col-sm-2">
-                @Html.DisplayNameFor(list => list[i].messageContent)
+                @Html.DisplayNameFor(list => list[i].MessageContent)
             </dt>
             <dd class = "col-sm-10">
-                @Html.DisplayFor(list => list[i].messageContent)
+                @Html.DisplayFor(list => list[i].MessageContent)
             </dd>
             <dt class = "col-sm-2">
                 @Html.DisplayNameFor(list => list[i].Sent)
@@ -35,7 +36,7 @@
     
 </div>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Home</a>
 </div>
 
 <div class="text-center">
@@ -55,3 +56,34 @@
         <td></td>
     </tr>
 </table>
+
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MessageContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sent)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@
