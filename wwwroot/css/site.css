@@ -43,6 +43,18 @@ body {
     text-align: center;
 }
 
+.message-table {
+
+}
+
+.message-table--header {
+
+}
+
+.message-table--item {
+
+}
+
 .nav-item {
     text-decoration: none;
     padding: 0.5rem;

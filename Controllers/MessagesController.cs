@@ -19,49 +19,68 @@ namespace MVCFRIB.Controllers
             _context = context;
         }
 
-        // GET: Messages
+        // "Index" for SendMessage: /Messages
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-        // GET: [Messages]
-        [HttpGet]
-        public async Task<IActionResult> List()
-        {
-            return View(await _context.Messages.ToListAsync());
-        }
 
-        // GET: Messages/Details/5
+        // GET: Messages/Details/{id}
         [HttpGet]
-        public async Task<IActionResult> Get(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+                return BadRequest("Invalid request. Id cannot be null.");
             }
 
             var message = await _context.Messages
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (message == null)
             {
-                return NotFound();
+                return NotFound($"Message with id {id} not found.");
             }
 
-            return View(message);
+            return View("Get", message);
         }
 
-        // POST: Messages/Send
+        // GET: Messages/List
+        [HttpGet]
+        public async Task<IActionResult> List()
+        {
+            try
+            {
+                return View("List", await _context.Messages.ToListAsync());
+            }
+            catch (Exception ex)
+            {
+                // log the exception
+                ModelState.AddModelError("ListMessageException", $"An error occurred while listing messages: {ex.Message}");
+                return RedirectToAction("Error", ex);
+            }
+        }
+
+        // POST request sent after submitting form in Index
         [HttpPost]
-        public async Task<IActionResult> Send([Bind("Id,MessageContent,Sent")] Message message)
+        public async Task<IActionResult> SendMessage([Bind("Id,MessageContent,Sent")] Message message)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(message);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(message);
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    // log the exception, redirect to error page
+                    ModelState.AddModelError("SendMessageException", $"An error occurred while sending the message: {ex.Message}");
+                    return RedirectToAction("Error", ex);
+                }
             }
-            return View(message);
+            // redirect to ListMessages after sending
+            return View("List", await _context.Messages.ToListAsync());
         }
     }
 }

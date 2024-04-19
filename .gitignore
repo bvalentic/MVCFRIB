@@ -13,3 +13,5 @@ packages/
 *.cache
 *.log
 *.tmp
+
+*.db

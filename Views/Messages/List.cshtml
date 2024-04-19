@@ -7,83 +7,32 @@
 
 <h1>Message List</h1>
 
-<div>
-    <h4>Messages</h4>
-    <hr />
-    @for (int i=0; i < Model.Count; i++)
-    {
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(list => list[i].Id)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(list => list[i].Id)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(list => list[i].MessageContent)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(list => list[i].MessageContent)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(list => list[i].Sent)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(list => list[i].Sent)
-            </dd>
-        </dl>
-    }
-    
-</div>
-<div>
-    <a asp-action="Index">Back to Home</a>
-</div>
+<hr />
 
 <div class="text-center">
-    <h1 class="display-4">Message List</h1>
     <h3>This is a list of all messages sent so far:</h3>
 </div>
 
-<table>
-    <tr>
+<table class="message-table">
+    <tr class="message-table--header">
         <th>ID</th>
         <th>Message</th>
         <th>Sent</th>
+        <th></th>
     </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+    @foreach (var message in Model)
+    {
+        <tr class="message-table--item">
+            <td>@message.Id</td>
+            <td>@message.MessageContent</td>
+            <td>@message.Sent</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@message.Id">Details</a>
+            </td>
+        </tr>
+    }
 </table>
 
-@* <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MessageContent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sent)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MessageContent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sent)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table> *@
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to Home</a>
+</div>
