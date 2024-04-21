@@ -9,7 +9,7 @@
 <body>
     <header class="background-state">
         <div>
-            <h1 class="header-text">Code Test</h1>
+            <h1 class="header-text header-text--padding">Code Test</h1>
             <div class="header-container">
                 <div class="nav-item">
                     <a class="header-link header-text" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -23,13 +23,13 @@
             </div>
         </div>
     </header>
-    <div class="container">
+    <div class="container-main">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-muted">
         <div class="container">
             &copy; 2024 - MVCFRIB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

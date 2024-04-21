@@ -4,27 +4,21 @@
     ViewData["Title"] = "Send Message";
 }
 
-<h1>Send Message</h1>
+<h1 class="center-text">Send Message</h1>
 
 <hr />
 
-<div class="row">
-    <div class="col-md-4">
-        
-    </div>
-</div>
-
 <div class="text-center">
     <h1>Enter a Message to Leave Behind</h1>
-    <form asp-action="SendMessage">
+    <form class="form" asp-action="SendMessage">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
+        <div class="form-group form-message">
             <label asp-for="MessageContent" class="form-label">Message:</label>
             <textarea asp-for="MessageContent" class="form-control text-box" rows="4" cols="30"></textarea>
             <span asp-validation-for="MessageContent" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <input type="submit" value="Send" class="btn btn-primary" />
+            <input type="submit" value="Send" class="form-button background-state" />
         </div>
     </form>
 </div>

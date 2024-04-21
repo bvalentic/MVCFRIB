@@ -24,7 +24,7 @@
     {
         <tr class="message-table--item">
             <td>@message.Id</td>
-            <td>@message.MessageContent</td>
+            <td class="clickable" onclick="location.href='@Url.Action("Details", new {message.Id})'">@message.MessageContent</td>
             <td>@message.Sent</td>
             <td>
                 <a asp-action="Details" asp-route-id="@message.Id">Details</a>
